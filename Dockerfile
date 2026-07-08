@@ -18,3 +18,6 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 # Setup document root for Laravel
 ENV WEBROOT /var/www/html/public
+
+# Enable auto migrations on container startup
+ENV RUN_MIGRATIONS=1
