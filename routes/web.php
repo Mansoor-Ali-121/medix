@@ -119,3 +119,13 @@ Route::get('/doctor/list/', [DoctorController::class, 'display'])->name('doctor.
 // deapartment show on website
 
 Route::get('/department', [DepartmentController::class, 'display'])->name('department.display');
+
+
+Route::get('/run-migrate', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate --force');
+        return "Migrations executed successfully!<br><pre>" . \Illuminate\Support\Facades\Artisan::output() . "</pre>";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
