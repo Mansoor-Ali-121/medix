@@ -11,7 +11,13 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
-
+try {
+    if (!file_exists(storage_path('framework/migrated.txt'))) {
+        \Illuminate\Support\Facades\Artisan::call('migrate --force');
+        file_put_contents(storage_path('framework/migrated.txt'), 'done');
+    }
+} catch (\Exception $e) {
+}
 // Bootstrap Laravel and handle the request...
 (require_once __DIR__.'/../bootstrap/app.php')
     ->handleRequest(Request::capture());
