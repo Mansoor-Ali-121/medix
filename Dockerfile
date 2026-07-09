@@ -19,5 +19,8 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Setup document root for Laravel
 ENV WEBROOT /var/www/html/public
 
+# Copy custom nginx configuration for routing
+COPY nginx.conf /etc/nginx/sites-available/default.conf
+
 # Enable auto migrations on container startup
 ENV RUN_MIGRATIONS=1
