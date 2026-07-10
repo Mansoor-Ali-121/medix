@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
             [
                 'name' => 'Admin Mansoor',
                 'password' => Hash::make('mansoor@1'), // Apna secure password yahan rakhein
-                'role' => 'admin', // Aapke user table mein admin check karne ke liye jo bhi column hai (jaise 'role' ya 'is_admin')
+                'usertype' => 'admin', // Aapke user table mein admin check karne ke liye jo bhi column hai (jaise 'role' ya 'is_admin')
             ]
         );
     }
