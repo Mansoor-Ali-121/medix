@@ -17,6 +17,7 @@ class AdminSeeder extends Seeder
                 'password' => Hash::make('mansoor@1'), // Apna password yahan verify karlein
                 'usertype' => 'admin', // Logs ke mutabiq aapka column 'usertype' hai
                 'contact' => '03000000000', // Yeh line humne add ki hai taake error khatam ho
+                'picture' => 'default.png',
             ]
         );
     }
