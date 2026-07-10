@@ -13,11 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Pehle se maujood test user ka code (agar rakhna chahein)
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // Yeh alag se baahir hona chahiye, factory ke andar nahi
+        $this->call([
+            AdminSeeder::class,
         ]);
     }
 }
