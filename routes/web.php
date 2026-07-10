@@ -114,8 +114,6 @@ Route::post('/login', [WebController::class, 'login'])->name('login');
 Route::get('/doctor/list/', [DoctorController::class, 'display'])->name('doctor.display');
 
 
-
-
 // deapartment show on website
 
 Route::get('/department', [DepartmentController::class, 'display'])->name('department.display');
@@ -128,4 +126,5 @@ Route::get('/run-migrate', function () {
     } catch (\Exception $e) {
         return "Error: " . $e->getMessage();
     }
-});
+});     
+
