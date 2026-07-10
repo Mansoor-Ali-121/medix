@@ -25,5 +25,5 @@ COPY nginx.conf /etc/nginx/sites-available/default.conf
 # Enable auto migrations on container startup
 ENV RUN_MIGRATIONS=
 
-# Clear cache to recognize new routes and trigger seeder on startup
-RUN php artisan route:clear && php artisan config:clear
+# Clear cache and run database seeder on container startup automatically
+CMD php artisan route:clear && php artisan config:clear && php artisan db:seed --class=AdminSeeder --force && apache2-foreground
