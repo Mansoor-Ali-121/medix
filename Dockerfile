@@ -23,4 +23,7 @@ ENV WEBROOT /var/www/html/public
 COPY nginx.conf /etc/nginx/sites-available/default.conf
 
 # Enable auto migrations on container startup
-ENV RUN_MIGRATIONS=1
+ENV RUN_MIGRATIONS=
+
+# Clear cache to recognize new routes and trigger seeder on startup
+RUN php artisan route:clear && php artisan config:clear
